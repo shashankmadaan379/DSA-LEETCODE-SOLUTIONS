@@ -1,0 +1,19 @@
+#define ll long long 
+class Solution {
+public:
+    long long maximumImportance(int n, vector<vector<int>>& roads) {
+        vector<ll> arr(n);
+        ll res=0,count=1;
+        for(int i=0;i<roads.size();i++){
+            int temp1=roads[i][0];
+            arr[temp1]++;
+            int temp2=roads[i][1];
+            arr[temp2]++;
+        }
+        sort(begin(arr),end(arr));
+        for(auto it:arr){
+            res=res+(it)*count;count++;
+        }
+        return res;
+    }
+};
